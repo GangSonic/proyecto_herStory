@@ -1,6 +1,35 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import 'bootstrap/dist/css/bootstrap.min.css'; ///estilo de boostrap 
+//import "./globals.css";  ///Por si hay mas css en el proyecto
+import '../styles/css/main.css';    ///css de la plantilla
+import Script from 'next/script'; // importa el js de la plantilla
 
+///importacion del header y footer
+import Header from "./components/mainMenu/Header";
+import Footer from "./components/mainFooter/footer";
+
+
+///exportacion  de componentes 
+export default function RootLayout({ children }) {
+  return (
+    <html lang="es">
+      <head>
+        <Script src="/js/main.js" strategy="afterInteractive" />
+      </head>
+      <body>
+        <Header />
+        {children}
+        <Footer />
+      </body>
+      
+    </html>
+  );
+}
+
+
+
+
+/*
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -27,3 +56,4 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+*/ 
